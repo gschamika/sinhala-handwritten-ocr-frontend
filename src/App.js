@@ -12,7 +12,6 @@ const SinhalaOCRApp = () => {
   const [copySuccess, setCopySuccess] = useState(false);
   const fileInputRef = useRef(null);
 
-  // Change this to your backend URL if different
   const API_BASE_URL = process.env.NODE_ENV === 'production'
       ? 'https://your-production-backend.com/api'
       : 'http://localhost:5000/api';
@@ -27,9 +26,9 @@ const SinhalaOCRApp = () => {
         return;
       }
 
-      // Validate file size (16MB max)
-      if (file.size > 16 * 1024 * 1024) {
-        setError('File size too large. Maximum size is 16MB.');
+      // Validate file size (8MB max)
+      if (file.size > 8 * 1024 * 1024) {
+        setError('File size too large. Maximum size is 8MB.');
         return;
       }
 
@@ -173,7 +172,7 @@ const SinhalaOCRApp = () => {
               Sinhala Handwritten Document Converter
             </h1>
             <p className="subtitle">
-              Convert your handwritten Sinhala documents to digital text using AI
+              Convert your handwritten Sinhala documents to digital text
             </p>
           </div>
 
@@ -219,7 +218,7 @@ const SinhalaOCRApp = () => {
                         Drag and drop your image here, or click to select
                       </p>
                       <p className="upload-subtext">
-                        Supports JPG and PNG files (max 16MB)
+                        Supports JPG and PNG files (max 8MB)
                       </p>
                       <input
                           ref={fileInputRef}
@@ -325,7 +324,7 @@ const SinhalaOCRApp = () => {
 
           {/* Footer */}
           <div className="footer">
-            <p>Powered by Google Gemini AI • Supports Sinhala handwritten documents</p>
+            <p>Powered by CNN+RNN ML Model • Supports Sinhala handwritten documents</p>
           </div>
         </div>
       </div>

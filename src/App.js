@@ -13,7 +13,7 @@ const SinhalaOCRApp = () => {
   const fileInputRef = useRef(null);
 
   const API_BASE_URL = process.env.NODE_ENV === 'production'
-      ? 'https://your-production-backend.com/api'
+      ? 'https://web-production-3f77.up.railway.app/api'
       : 'http://localhost:5000/api';
 
   const handleFileSelect = (event) => {

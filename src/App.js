@@ -90,11 +90,7 @@ const SinhalaOCRApp = () => {
         setConvertedText(data.converted_text);
         setSuccess('Document converted successfully!');
       } else {
-        if (data.error_type === 'ruled_paper') {
-          setError(`❌ ${data.error}\n\n💡 Tip: Please upload a document written on plain paper without ruled lines for better OCR accuracy.`);
-        } else {
-          setError(data.error || 'Failed to convert document');
-        }
+        setError(data.error || 'Failed to convert document');
       }
     } catch (err) {
       console.error('Conversion error:', err);

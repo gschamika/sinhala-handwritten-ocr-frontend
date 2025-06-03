@@ -11,6 +11,7 @@ const SinhalaOCRApp = () => {
   const [success, setSuccess] = useState('');
   const [copySuccess, setCopySuccess] = useState(false);
   const fileInputRef = useRef(null);
+  const [showGuidelines, setShowGuidelines] = useState(false);
 
   const API_BASE_URL = process.env.NODE_ENV === 'production'
       ? 'https://web-production-3f77.up.railway.app/api'
@@ -320,6 +321,75 @@ const SinhalaOCRApp = () => {
                   </div>
               )}
             </div>
+          </div>
+
+          {/* Guidelines Section - CSS Version */}
+          <div className="guidelines-section">
+            <div className="guidelines-header">
+              <h2 className="guidelines-title">
+                📋 Guidelines for Best Results
+              </h2>
+              <button
+                  onClick={() => setShowGuidelines(!showGuidelines)}
+                  className="guidelines-toggle-btn"
+              >
+                {showGuidelines ? 'Hide' : 'Show'}
+              </button>
+            </div>
+
+            {showGuidelines && (
+                <div className="guidelines-content">
+                  <div className="guidelines-list">
+                    {/* Guideline 1 */}
+                    <div className="guideline-item">
+                      <span className="guideline-emoji">📄</span>
+                      <p className="guideline-text">
+                        Use documents written on blank white paper (avoid ruled or lined pages)
+                      </p>
+                    </div>
+
+                    {/* Guideline 2 */}
+                    <div className="guideline-item">
+                      <span className="guideline-emoji">📐</span>
+                      <p className="guideline-text">
+                        Ensure the document is positioned at the correct angle (not tilted or rotated)
+                      </p>
+                    </div>
+
+                    {/* Guideline 3 */}
+                    <div className="guideline-item">
+                      <span className="guideline-emoji">📸</span>
+                      <p className="guideline-text">
+                        Upload clear, well-lit images with good focus and minimal shadows
+                      </p>
+                    </div>
+
+                    {/* Guideline 4 */}
+                    <div className="guideline-item">
+                      <span className="guideline-emoji">⚠️</span>
+                      <p className="guideline-text">
+                        Avoid uploading blurry, folded, torn, or damaged documents
+                      </p>
+                    </div>
+
+                    {/* Guideline 5 */}
+                    <div className="guideline-item">
+                      <span className="guideline-emoji">🔍</span>
+                      <p className="guideline-text">
+                        Ensure text is clearly visible and not too small in the image
+                      </p>
+                    </div>
+
+                    {/* Guideline 6 */}
+                    <div className="guideline-item">
+                      <span className="guideline-emoji">🇱🇰</span>
+                      <p className="guideline-text emphasis">
+                        This system is designed specifically for Sinhala handwriting only
+                      </p>
+                    </div>
+                  </div>
+                </div>
+            )}
           </div>
 
           {/* Footer */}

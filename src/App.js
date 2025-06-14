@@ -177,11 +177,32 @@ const SinhalaOCRApp = () => {
             </p>
           </div>
 
+          {/* Mobile App Download Section */}
+          <div className="mobile-download-banner">
+            <div className="mobile-banner-left">
+              <div className="mobile-icon-circle">
+                📱
+              </div>
+              <div className="mobile-banner-text">
+                <h3>Mobile App Available!</h3>
+                <p>Download our mobile app for easier document convert • Size: 8.0 MB</p>
+              </div>
+            </div>
+            <a
+                href="/sinhala-ocr-v1.0.apk"
+                download
+                className="mobile-download-button"
+            >
+              ⬇️ Download APK
+            </a>
+          </div>
+
+
           <div className="main-grid">
             {/* Upload Section */}
             <div className="card">
               <h2 className="card-title">
-                <Upload className="icon" size={24} />
+                <Upload className="icon" size={24}/>
                 Upload Document
               </h2>
 
@@ -200,21 +221,21 @@ const SinhalaOCRApp = () => {
                       />
                       <div className="file-actions">
                     <span className="file-name">
-                      <CheckCircle className="success-icon" size={20} />
+                      <CheckCircle className="success-icon" size={20}/>
                       {selectedFile.name}
                     </span>
                         <button
                             onClick={deleteFile}
                             className="delete-button"
                         >
-                          <X className="icon" size={16} />
+                          <X className="icon" size={16}/>
                           Delete
                         </button>
                       </div>
                     </div>
                 ) : (
                     <div className="upload-placeholder">
-                      <ImageIcon className="upload-icon" size={48} />
+                      <ImageIcon className="upload-icon" size={48}/>
                       <p className="upload-text">
                         Drag and drop your image here, or click to select
                       </p>
@@ -247,12 +268,12 @@ const SinhalaOCRApp = () => {
                 >
                   {isLoading ? (
                       <>
-                        <Loader2 className="loading-icon" size={20} />
+                        <Loader2 className="loading-icon" size={20}/>
                         Converting...
                       </>
                   ) : (
                       <>
-                        <FileText className="icon" size={20} />
+                        <FileText className="icon" size={20}/>
                         Convert to Text
                       </>
                   )}
@@ -262,14 +283,14 @@ const SinhalaOCRApp = () => {
               {/* Status Messages */}
               {error && (
                   <div className="error-message">
-                    <AlertCircle className="message-icon" size={20} />
+                    <AlertCircle className="message-icon" size={20}/>
                     <span>{error}</span>
                   </div>
               )}
 
               {success && (
                   <div className="success-message">
-                    <CheckCircle className="message-icon" size={20} />
+                    <CheckCircle className="message-icon" size={20}/>
                     <span>{success}</span>
                   </div>
               )}
@@ -278,7 +299,7 @@ const SinhalaOCRApp = () => {
             {/* Results Section */}
             <div className="card">
               <h2 className="card-title">
-                <FileText className="icon" size={24} />
+                <FileText className="icon" size={24}/>
                 Converted Text
               </h2>
 
@@ -297,7 +318,7 @@ const SinhalaOCRApp = () => {
                           onClick={copyToClipboard}
                           className="action-button copy-button"
                       >
-                        <Copy className="icon" size={18} />
+                        <Copy className="icon" size={18}/>
                         {copySuccess ? 'Copied!' : 'Copy Text'}
                       </button>
                       <button
@@ -306,9 +327,9 @@ const SinhalaOCRApp = () => {
                           className="action-button download-button"
                       >
                         {isLoading ? (
-                            <Loader2 className="loading-icon" size={18} />
+                            <Loader2 className="loading-icon" size={18}/>
                         ) : (
-                            <Download className="icon" size={18} />
+                            <Download className="icon" size={18}/>
                         )}
                         Download PDF
                       </button>
@@ -316,7 +337,7 @@ const SinhalaOCRApp = () => {
                   </div>
               ) : (
                   <div className="empty-results">
-                    <FileText className="empty-icon" size={64} />
+                    <FileText className="empty-icon" size={64}/>
                     <p>Upload and convert a document to see the text here</p>
                   </div>
               )}
